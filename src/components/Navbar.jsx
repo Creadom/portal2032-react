@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom'
+import useGeolocation from '../hooks/useGeolocation'
 
 const navItems = [
   { path: '/', label: 'Introduction' },
@@ -10,6 +11,8 @@ const navItems = [
 ]
 
 export default function Navbar() {
+  const { country, flag, status } = useGeolocation()
+
   return (
     <header className="navbar">
       <div className="navbar-brand">
@@ -28,6 +31,16 @@ export default function Navbar() {
           </NavLink>
         ))}
       </nav>
+      <div className="navbar-geo">
+        {status === 'granted' && country && (
+          <span className="geo-welcome">
+            Welcome from {country} {flag}
+          </span>
+        )}
+        {status === 'loading' && (
+          <span className="geo-welcome geo-loading">Locating…</span>
+        )}
+      </div>
     </header>
   )
 }

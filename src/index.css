@@ -126,6 +126,24 @@ body::after {
   gap: 0.15rem;
 }
 
+.navbar-geo {
+  min-width: 10rem;
+  text-align: right;
+}
+
+.geo-welcome {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--accent);
+  letter-spacing: 0.05em;
+  opacity: 0.85;
+}
+
+.geo-loading {
+  opacity: 0.4;
+  font-style: italic;
+}
+
 .nav-link {
   font-family: var(--font-mono);
   font-size: 0.78rem;
