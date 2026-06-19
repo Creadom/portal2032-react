@@ -8,6 +8,8 @@ export default function GamePage() {
           title="Portal 2032 Game"
           className="game-frame"
           allowFullScreen
+          sandbox="allow-scripts allow-same-origin"
+          referrerPolicy="no-referrer"
         />
       </div>
     </div>
