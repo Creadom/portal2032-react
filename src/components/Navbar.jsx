@@ -1,17 +1,18 @@
-import { NavLink } from 'react-router-dom'
-import useGeolocation from '../hooks/useGeolocation'
+import { NavLink } from "react-router-dom";
+import useGeolocation from "../hooks/useGeolocation";
 
 const navItems = [
-  { path: '/', label: 'Introduction' },
-  { path: '/logbook', label: 'Logbook' },
-  { path: '/description', label: 'Description' },
-  { path: '/result', label: 'Result' },
-  { path: '/links', label: 'Links' },
-  { path: '/game', label: 'Play ▶' },
-]
+  { path: "/", label: "Introduction" },
+  { path: "/logbook", label: "Logbook" },
+  { path: "/description", label: "Description" },
+  { path: "/result", label: "Result" },
+  { path: "/links", label: "Links" },
+  { path: "/feedback", label: "Feedback" },
+  { path: "/game", label: "Play ▶" },
+];
 
 export default function Navbar() {
-  const { country, flag, status } = useGeolocation()
+  const { country, flag, status } = useGeolocation();
 
   return (
     <header className="navbar">
@@ -24,23 +25,25 @@ export default function Navbar() {
           <NavLink
             key={path}
             to={path}
-            end={path === '/'}
-            className={({ isActive }) => 'nav-link' + (isActive ? ' active' : '')}
+            end={path === "/"}
+            className={({ isActive }) =>
+              "nav-link" + (isActive ? " active" : "")
+            }
           >
             {label}
           </NavLink>
         ))}
       </nav>
       <div className="navbar-geo">
-        {status === 'granted' && country && (
+        {status === "granted" && country && (
           <span className="geo-welcome">
             Welcome from {country} {flag}
           </span>
         )}
-        {status === 'loading' && (
+        {status === "loading" && (
           <span className="geo-welcome geo-loading">Locating…</span>
         )}
       </div>
     </header>
-  )
+  );
 }

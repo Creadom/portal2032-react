@@ -1,8 +1,9 @@
-import { Routes, Route } from 'react-router-dom'
-import Navbar from './components/Navbar'
-import WPPage from './components/WPPage'
-import MediaGallery from './components/MediaGallery'
-import GamePage from './pages/GamePage'
+import { Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import WPPage from "./components/WPPage";
+import MediaGallery from "./components/MediaGallery";
+import FeedbackForm from "./components/FeedbackForm";
+import GamePage from "./pages/GamePage";
 
 export default function App() {
   return (
@@ -13,13 +14,17 @@ export default function App() {
           <Route path="/" element={<WPPage slug="introduction" />} />
           <Route path="/logbook" element={<WPPage slug="logbook" />} />
           <Route path="/description" element={<WPPage slug="description" />} />
-          <Route path="/result" element={
-            <>
-              <WPPage slug="result" />
-              <MediaGallery />
-            </>
-          } />
+          <Route
+            path="/result"
+            element={
+              <>
+                <WPPage slug="result" />
+                <MediaGallery />
+              </>
+            }
+          />
           <Route path="/links" element={<WPPage slug="links" />} />
+          <Route path="/feedback" element={<FeedbackForm />} />
           <Route path="/game" element={<GamePage />} />
         </Routes>
       </main>
@@ -27,5 +32,5 @@ export default function App() {
         <p>Portal 2032 — HES-SO Valais-Wallis · 64-31 Web Development</p>
       </footer>
     </div>
-  )
+  );
 }
