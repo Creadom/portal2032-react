@@ -12,9 +12,9 @@
   --text: #c8d6e5;
   --text-dim: #5a6a7a;
   --border: #1a2a3a;
-  --font-title: 'Orbitron', sans-serif;
-  --font-mono: 'Share Tech Mono', monospace;
-  --font-body: 'Exo 2', sans-serif;
+  --font-title: "Orbitron", sans-serif;
+  --font-mono: "Share Tech Mono", monospace;
+  --font-body: "Exo 2", sans-serif;
 }
 
 * {
@@ -38,7 +38,7 @@ body {
 
 /* Scanline overlay */
 body::after {
-  content: '';
+  content: "";
   position: fixed;
   inset: 0;
   background: repeating-linear-gradient(
@@ -60,7 +60,7 @@ body::after {
 
 .cyber-box::before,
 .cyber-box::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 18px;
   height: 18px;
@@ -132,7 +132,7 @@ body::after {
 }
 
 .geo-welcome {
-  font-family: 'Share Tech Mono', monospace;
+  font-family: "Share Tech Mono", monospace;
   font-size: 0.75rem;
   color: var(--accent);
   letter-spacing: 0.05em;
@@ -153,7 +153,10 @@ body::after {
   border: 1px solid transparent;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  transition: color 0.2s, border-color 0.2s, background 0.2s;
+  transition:
+    color 0.2s,
+    border-color 0.2s,
+    background 0.2s;
 }
 
 .nav-link:hover {
@@ -401,7 +404,9 @@ h1.article-title {
   border-right-color: var(--accent);
   animation: portalSpin 1s linear infinite;
   position: relative;
-  box-shadow: 0 0 20px rgba(0, 245, 255, 0.3), inset 0 0 20px rgba(0, 245, 255, 0.05);
+  box-shadow:
+    0 0 20px rgba(0, 245, 255, 0.3),
+    inset 0 0 20px rgba(0, 245, 255, 0.05);
 }
 
 .portal-inner {
@@ -418,7 +423,11 @@ h1.article-title {
   position: absolute;
   inset: 22px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(0, 245, 255, 0.15) 0%, transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(0, 245, 255, 0.15) 0%,
+    transparent 70%
+  );
   animation: portalPulse 2s ease-in-out infinite;
 }
 
@@ -518,6 +527,118 @@ h1.article-title {
   border: none;
 }
 
+.feedback-section {
+  margin-top: 3rem;
+  display: grid;
+  gap: 1.5rem;
+  border: 1px solid var(--border);
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.feedback-header {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.section-tag,
+.section-title,
+.section-desc {
+  color: var(--text);
+}
+
+.section-tag {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.section-title {
+  font-family: var(--font-title);
+  font-size: 1.35rem;
+  color: var(--accent2);
+  letter-spacing: 0.1em;
+  margin: 0;
+}
+
+.section-desc {
+  color: var(--text-dim);
+}
+
+.feedback-form {
+  display: grid;
+  gap: 1rem;
+}
+
+.form-row {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.form-row-full {
+  grid-column: 1 / -1;
+}
+
+.feedback-form label {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.feedback-form input,
+.feedback-form textarea {
+  width: 100%;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+  padding: 0.9rem 1rem;
+  border-radius: 0.45rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  outline: none;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+.feedback-form input:focus,
+.feedback-form textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(0, 245, 255, 0.08);
+}
+
+.feedback-form textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+.form-feedback {
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  padding: 0.9rem 1rem;
+  border-radius: 0.45rem;
+}
+
+.form-feedback-error {
+  background: rgba(255, 107, 0, 0.08);
+  border: 1px solid rgba(255, 107, 0, 0.2);
+  color: var(--accent2);
+}
+
+.form-feedback-success {
+  background: rgba(0, 245, 255, 0.08);
+  border: 1px solid rgba(0, 245, 255, 0.2);
+  color: var(--accent);
+}
+
+.form-submit {
+  justify-self: start;
+  padding: 0.95rem 1.6rem;
+}
+
 /* ── ANIMATIONS ── */
 @keyframes fadeIn {
   from {
@@ -537,7 +658,8 @@ h1.article-title {
 }
 
 @keyframes portalPulse {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0.4;
     transform: scale(0.9);
   }
@@ -548,8 +670,13 @@ h1.article-title {
 }
 
 @keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
 }
 
 /* ── RESPONSIVE ── */
