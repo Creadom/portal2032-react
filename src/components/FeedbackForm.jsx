@@ -1,5 +1,19 @@
 import { useState } from "react";
 
+/**
+ * Controlled feedback form component.
+ *
+ * Manages its own internal form state (`name`, `email`, `message`) and a
+ * `status`/`error` indicator. On submit the component validates that
+ * `name` and `message` are non-empty; if validation passes it resets the
+ * form and sets a success status. This component does not send data to a
+ * remote endpoint — it only demonstrates local validation and UX.
+ *
+ * Side effects: none external (no network requests). Consumers should
+ * replace the submit handler if they need to perform an actual POST.
+ *
+ * @returns {JSX.Element} The feedback form markup.
+ */
 export default function FeedbackForm() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [status, setStatus] = useState("idle");

@@ -11,6 +11,19 @@ const navItems = [
   { path: "/game", label: "Play ▶" },
 ];
 
+/**
+ * Primary site navigation bar.
+ *
+ * Renders a brand block, a list of navigation links and a small
+ * geolocation-based greeting. The greeting is shown only when
+ * `useGeolocation` indicates permission was granted and a country is
+ * available. Links are rendered using `NavLink` to receive active
+ * styling from `react-router`.
+ *
+ * This component has no props and no external side effects.
+ *
+ * @returns {JSX.Element} The header/navigation markup.
+ */
 export default function Navbar() {
   const { country, flag, status } = useGeolocation();
 
